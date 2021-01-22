@@ -1,0 +1,244 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap");
+
+:root {
+  --primary-color: #22254b;
+  --secondary-color: #373b69;
+  --red: #7c0000;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Poppins";
+  height: 100vh;
+  color: white;
+  background-color: var(--primary-color);
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+/***********HEADER***********/
+.header {
+  background-color: var(--secondary-color);
+  position: fixed;
+  height: 110px;
+  width: 100%;
+  top: 0;
+  padding: 20px;
+  margin-bottom: 3%;
+}
+
+.header h1,
+.header .fa-medal {
+  font-size: 200%;
+  letter-spacing: 4px;
+  display: inline;
+}
+
+.header .fa-medal {
+  color: var(--red);
+}
+
+.header .fa-dog,
+.header .fa-trophy {
+  font-size: 150%;
+  position: absolute;
+  top: 31px;
+}
+
+.header .fa-trophy {
+  right: 20px;
+  color: var(--red);
+}
+
+.header .fa-dog.dogIcon1 {
+  right: 98px;
+  top: 15px;
+}
+
+.header .fa-dog.dogIcon2 {
+  right: 176px;
+  top: 46px;
+}
+
+.header .fa-dog.dogIcon3 {
+  right: 254px;
+}
+
+.vote-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 250%;
+  letter-spacing: 5px;
+  font-family: inherit;
+  font-weight: bold;
+  background-color: #ffd700;
+  color: var(--primary-color);
+  cursor: pointer;
+  padding: 10px 60px;
+  outline: none;
+  border-radius: 50px;
+  /* box-shadow: 5px 5px 15px (0, 0, 0, 0.2); */
+}
+
+.vote-button:hover {
+  background-color: #ffe658;
+}
+
+.vote-button:focus {
+  outline: none;
+}
+
+/***********FOOTER***********/
+.footer {
+  background-color: var(--secondary-color);
+  position: fixed;
+  height: 55px;
+  width: 100%;
+  bottom: 0;
+  margin-top: 3%;
+  text-align: center;
+}
+
+.footer small {
+  font-size: 12px;
+}
+
+.footer img {
+  width: 20px;
+  height: 20px;
+}
+
+.dog-api {
+  font-weight: bold;
+}
+
+/***********MAIN CONTAINER***********/
+.container {
+  position: absolute;
+  height: calc(100% - 165px - 6%);
+  top: calc(110px + 3%);
+  width: 100%;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* **********DOG PICTURE CONTAINER***********/
+.dogs-container {
+  max-width: 800px;
+  height: 100%;
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 32.5% 32.5% 32.5%;
+  grid-template-areas:
+    "dog0 dog1 dog-big dog-big"
+    "dog2 dog3 dog-big dog-big"
+    "dog4 dog5 dog6 dog7";
+}
+
+.dogs-container .dog img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: middle;
+  cursor: pointer;
+  border: 5px solid var(--primary-color);
+  opacity: 0.75;
+  transform: scale(1);
+  animation: load 1s ease-in-out;
+  border-radius: 10px;
+  border: solid 5px var(--secondary-color);
+}
+
+@keyframes load {
+  0% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.dogs-container .dog img:hover {
+  border: solid 5px var(--red);
+  opacity: 1;
+}
+
+.dogs-container .dog.active img {
+  border: solid 5px gold;
+  opacity: 1;
+}
+
+.dog0 {
+  grid-area: dog0;
+}
+
+.dog1 {
+  grid-area: dog1;
+}
+
+.dog2 {
+  grid-area: dog2;
+}
+
+.dog3 {
+  grid-area: dog3;
+}
+
+.dog4 {
+  grid-area: dog4;
+}
+
+.dog5 {
+  grid-area: dog5;
+}
+
+.dog6 {
+  grid-area: dog6;
+}
+
+.dog7 {
+  grid-area: dog7;
+}
+
+.dog-big {
+  grid-area: dog-big;
+}
+
+@media (max-width: 960px) {
+  .fa-trophy,
+  .dogIcon1,
+  .dogIcon3,
+  .dogIcon2 {
+    display: none;
+  }
+  .vote-button {
+    left: 84vw;
+  }
+}
+
+@media (max-width: 384px) {
+  .header {
+    height: 55px;
+  }
+
+  .header h1,
+  .header .fa-medal {
+    font-size: 100%;
+    letter-spacing: 2px;
+    display: inline-block;
+    text-align: center;
+  }
+}
